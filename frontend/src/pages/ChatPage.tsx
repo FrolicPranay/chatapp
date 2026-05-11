@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { ChatState } from '../context/ChatProvider';
 import ChatList from '../components/ChatList';
 import ChatWindow from '../components/ChatWindow';
@@ -10,7 +10,7 @@ const ChatPage = () => {
   return (
     <div className="chat-layout">
       {user && <ChatList fetchAgain={fetchAgain} />}
-      {user && <ChatWindow fetchAgain={fetchAgain} setFetchAgain={setFetchAgain} />}
+      {user && <ChatWindow setFetchAgain={setFetchAgain} />}
     </div>
   );
 };

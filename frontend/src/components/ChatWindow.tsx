@@ -1,15 +1,15 @@
-import React, { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef, FormEvent } from 'react';
 import axios from 'axios';
 import { io, Socket } from 'socket.io-client';
 import { ChatState } from '../context/ChatProvider';
 import { Send, Smile, MessageCircle } from 'lucide-react';
-import EmojiPicker from 'emoji-picker-react';
+import EmojiPicker, { Theme } from 'emoji-picker-react';
 import { format } from 'date-fns';
 
 const ENDPOINT = "http://localhost:5000";
 let socket: Socket, selectedChatCompare: any;
 
-const ChatWindow = ({ fetchAgain, setFetchAgain }: any) => {
+const ChatWindow = ({ setFetchAgain }: any) => {
   const [messages, setMessages] = useState<any[]>([]);
   const [newMessage, setNewMessage] = useState('');
   const [socketConnected, setSocketConnected] = useState(false);
@@ -32,7 +32,7 @@ const ChatWindow = ({ fetchAgain, setFetchAgain }: any) => {
     }
   };
 
-  const sendMessage = async (e?: React.FormEvent) => {
+  const sendMessage = async (e?: FormEvent) => {
     if (e) e.preventDefault();
     if (newMessage) {
       socket.emit('stop typing', selectedChat._id);
@@ -192,7 +192,7 @@ const ChatWindow = ({ fetchAgain, setFetchAgain }: any) => {
       <div className="chat-input-area" style={{ position: 'relative' }}>
         {showEmojiPicker && (
           <div style={{ position: 'absolute', bottom: '80px', left: '20px', zIndex: 10 }}>
-            <EmojiPicker onEmojiClick={onEmojiClick} theme="dark" as any />
+            <EmojiPicker onEmojiClick={onEmojiClick} theme={Theme.DARK} />
           </div>
         )}
         <button type="button" className="btn-icon" onClick={() => setShowEmojiPicker(!showEmojiPicker)} title="Add Emoji">

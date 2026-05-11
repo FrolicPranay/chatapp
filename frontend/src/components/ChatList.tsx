@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { ChatState } from '../context/ChatProvider';
-import { Search, LogOut } from 'lucide-react';
+import { LogOut } from 'lucide-react';
 
 const ChatList = ({ fetchAgain }: { fetchAgain: boolean }) => {
   const [loggedUser, setLoggedUser] = useState<any>();
