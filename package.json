@@ -1,4 +1,10 @@
 {
+  "name": "chat-app-root",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "concurrently \"npm run dev --prefix frontend\" \"npm start --prefix backend\"",
+    "install-all": "npm install && npm install --prefix frontend && npm install --prefix backend"
+  },
   "dependencies": {
     "axios": "^1.16.0",
     "date-fns": "^4.1.0",
@@ -6,5 +12,8 @@
     "lucide-react": "^1.14.0",
     "react-router-dom": "^7.15.0",
     "socket.io-client": "^4.8.3"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
   }
 }
