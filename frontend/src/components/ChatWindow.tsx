@@ -6,7 +6,7 @@ import { Send, Smile, MessageCircle } from 'lucide-react';
 import EmojiPicker from 'emoji-picker-react';
 import { format } from 'date-fns';
 
-const ENDPOINT = import.meta.env.VITE_API_URL || "http://localhost:5000";
+const ENDPOINT = "http://localhost:5000";
 let socket: Socket, selectedChatCompare: any;
 
 const ChatWindow = ({ fetchAgain, setFetchAgain }: any) => {
